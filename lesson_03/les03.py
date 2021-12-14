@@ -4,4 +4,4 @@ print('Как ваша фамилия?');
 surname = input()
 print('Как ваше отчество?');
 patronymic = input()
-print(surname, name, patronymic);
+print(surname, name, patronymic, set='-');
