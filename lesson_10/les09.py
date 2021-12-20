@@ -1,0 +1,8 @@
+print('Введите строку')
+s = input()
+print(len(s))
+print(s[len(s)-1])
+print(s[0:2])
+print(s[len(s)-2:len(s)])
+print(s[::-1])
+print(s[1:len(s)-1])
