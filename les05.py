@@ -4,6 +4,6 @@ def is_star(list):
     if int(list[0])*int(list[1]) == int(list[2]) % 100:
         return True
     else:
-        return
+        return False
 
 print(is_star(date_list))
