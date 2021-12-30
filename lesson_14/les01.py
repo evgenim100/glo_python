@@ -1,3 +1,49 @@
+from random import randint
+
+def is_answer(string):
+    while True:
+        if string == 'Да' or string == 'Нет':
+            break
+        else:
+            string = input('Введите "Да" или "Нет"')
+            continue
+    return string
+
+def is_digit(digit):
+    while True:
+        if digit.isdigit():
+            digit = int(digit)
+            break
+        else:
+            print('Введите число или цифру')
+            digit = input()
+            continue
+    return digit
+
+def ask_question(question):
+    print(question, 'Введите "Да" или "Нет"')
+    answer = input()
+    answer = is_answer(answer)
+    if answer == 'Да':
+        return True
+    else:
+        return False
+
+
+
+def generate_password(length, chars):
+    password = ''
+    for i in range(length):
+        random_index = randint(0, len(chars)-1)
+        password += chars[random_index]
+    return password
+
+
+while True:
+    print('Привет, Я генератор паролей, я задам немколько вопросв и сгенерирую пароль.')
+    print('Сколько паролей вы хотите сгенерировать?')
+    ammount = input()
+    ammount = is_digit(ammount)
     print('Введите длину пароля')
     length = input()
     length = is_digit(length)
