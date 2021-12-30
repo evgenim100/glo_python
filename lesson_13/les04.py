@@ -13,11 +13,15 @@ def is_valid(user_input):
 
 
 def valid_secret(right_border):
-    if right_border.isdigit():
-        right_border = int(right_border)
-        return right_border
-    else:
-        return False
+    while True:
+        if right_border.isdigit():
+            right_border = int(right_border)
+            break
+        else:
+            print('Введите число или цифру')
+            right_border = input()
+            continue
+    return right_border
 
 
 def secret(right_border):
@@ -35,6 +39,7 @@ def make_store(right_border):
 
 
 def calc_attempts(value):
+    store = []
     store = make_store(right_border)
     mid = len(store) // 2
     low = 0
@@ -56,18 +61,12 @@ print('Добро пожаловать в игру "Угадай число"')
 
 
 while True:
-    while True:
-        print('Введите правую границу диапазона:')
-        right_border = input()
-        if not valid_secret(right_border):
-            right_border = int(right_border)
-            secret_number = secret(right_border)
-            break
-        else:
-            continue
+    print('Введите правую границу диапазона:')
+    right_border = input()
+    right_border = valid_secret(right_border)
+    secret_number = secret(right_border)
     cnt = 0
     cnt_attempts = calc_attempts(secret_number)
-
     while True:
         print('Введите число от 1 до', right_border)
         user_input = input()
@@ -76,10 +75,10 @@ while True:
         user_number = int(user_input)
 
         if secret_number > user_number:
-            print('Загаданное число больше введенного')
+            print('Загаданное чилсо больше введенного')
             cnt += 1
         elif secret_number < user_number:
-            print('Загаданное число меньше введенного')
+            print('Загаданное чилсо меньше введенного')
             cnt += 1
         else:
 
